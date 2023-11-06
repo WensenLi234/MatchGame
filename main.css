@@ -1,0 +1,90 @@
+body {
+    background-color: #ff2211;
+}
+
+
+
+
+h1 {
+    top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 500px;
+}
+
+
+.card {
+    max-width: 100%;
+    height: auto;
+    background-color: #fa8be2;
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+
+
+
+#reset {
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: 10%;
+    top: 10%;
+    left: 47%;
+}
+
+
+
+
+#guideParagraph {
+    width: 20%;
+    padding: 4%;
+    border-style: solid;
+    border-color: black;
+    background-color: #ca44fa;
+}
+
+
+
+
+#guessParagraph {
+    width: 20%;
+    padding: 4%;
+    border-style: solid;
+    border-color: black;
+    float: right;
+    background-color: #ca44fa;
+}
+
+
+
+
+#leftPanel {
+    position: absolute;
+    top: 11%;
+    width: 50%;
+   
+}
+
+
+
+
+#rightPanel{
+    position: absolute;
+    top: 12.5%;
+    right: 1%;
+    width: 35%;
+}
+
+
+
+
+#cards {
+    display: grid;
+    background-color: blue;
+    width: 820px;
+    height: 820px;
+    gap: 5px;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows:repeat(4, 200px);
+}
