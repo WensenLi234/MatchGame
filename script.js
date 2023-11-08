@@ -2,16 +2,15 @@ const resetButton = document.getElementById("reset");
 const guideButton = document.getElementById("guideButton");
 const scoreButton = document.getElementById("scoreButton");
 const guidePara = document.getElementById("guideParagraph");
-const cardContainer = document.getElementById("cardContainer");
+const cardContainer = document.getElementById("cards");
 const scorePara = document.getElementById("score");
-
-console.log(cardData);
-let cards = [
-    [],
-    [],
-    [],
-    []
-]
+const cards = document.getElementsByClassName("card");
+const images = {
+    "circle": "images/Circle.png",
+    "square": "images/Square.png",
+    "triangle": "images/Triangle.png",
+    "kite": "images/Kite.png"
+}
 let guideOn = true;
 let scoreOn = true;
 /* Initializer function:
@@ -22,7 +21,9 @@ function initialize() {
 }
 // resets game
 function reset() {
-   
+    for(let i of cards) {
+        i.src = "Pattern.png";
+    }
 }
 // Maybe combine the two functions?
 function toggleGuide() {
@@ -44,8 +45,20 @@ function toggleScore() {
     }
 }
 
-
+function revealCard(object) {
+    let cardClass = object.className;
+    for(let i in images) {
+        if(cardClass.search(i) >= 0) {
+            object.src = images[i];
+            return i;
+        }
+    }
+}
 resetButton.addEventListener("click", reset);
 guideButton.addEventListener("click", toggleGuide);
-document.getElementById("among").src = cardData[0];
-console.log(`${cardData[0]}`);
+for(let i of cards) {
+    i.addEventListener("click", function(){
+        revealCard(i);
+    });
+}
+initialize();

@@ -10,17 +10,21 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 500px;
+    width: 35%;
 }
+
+
 
 
 .card {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    background-color: #fa8be2;
+    background-color: #ca44fa;
     grid-row: span 1;
     grid-column: span 1;
 }
+
+
 
 
 
@@ -29,18 +33,17 @@ h1 {
     position: absolute;
     margin-top: auto;
     margin-bottom: 10%;
-    top: 10%;
-    left: 47%;
+    top: 8%;
+    left: 49%;
+    padding: .25vw .5vw;
 }
 
 
-
-
 #guideParagraph {
-    width: 20%;
+    width: 40%;
     padding: 4%;
     border-style: solid;
-    border-color: black;
+    border-color: #ff8866;
     background-color: #ca44fa;
 }
 
@@ -48,10 +51,10 @@ h1 {
 
 
 #guessParagraph {
-    width: 20%;
+    width: 40%;
     padding: 4%;
     border-style: solid;
-    border-color: black;
+    border-color: #ff8866;
     float: right;
     background-color: #ca44fa;
 }
@@ -62,9 +65,11 @@ h1 {
 #leftPanel {
     position: absolute;
     top: 11%;
-    width: 50%;
+    width: 20%;
    
 }
+
+
 
 
 
@@ -73,7 +78,7 @@ h1 {
     position: absolute;
     top: 12.5%;
     right: 1%;
-    width: 35%;
+    width: 20%;
 }
 
 
@@ -81,10 +86,15 @@ h1 {
 
 #cards {
     display: grid;
-    background-color: blue;
-    width: 820px;
-    height: 820px;
-    gap: 5px;
-    grid-template-columns: repeat(4, 200px);
-    grid-template-rows:repeat(4, 200px);
+    background-color: #ff8866;
+    border-style: solid;
+    border-color: #ba2256;
+    border-radius: 2%;
+    margin: 3% 25%;
+    width: 50vw;
+    height: 50vw;
+    gap: 1%;
+    padding: .5%;
+    grid-template-columns: repeat(4, 24.2%);
+    grid-template-rows:repeat(4, 24.2%);
 }
