@@ -3,7 +3,6 @@ const guideButton = document.getElementById("guideButton");
 const guidePara = document.getElementById("guideParagraph");
 const cardContainer = document.getElementById("cards");
 const scorePara = document.getElementById("guessParagraph");
-const cards = document.getElementsByClassName("card");
 const images = {
     "circle": "images/Circle.png",
     "square": "images/Square.png",
@@ -12,9 +11,10 @@ const images = {
     "trapezoid": "images/Trapezoid.png",
     "hexagon": "images/Hexagon.png",
     "star": "images/Star.png",
-    "semicircle": "images/Semicircle",
+    "halfround": "images/Semicircle.png",
 }
 const pattern = "Pattern.png";
+let cards = Array.from(document.getElementsByClassName("card"));
 let guideOn = true;
 let scoreOn = true;
 let cardsSelected = [];
@@ -28,11 +28,21 @@ function initialize() {
 }
 // resets game
 function reset() {
-    for(let i of cards) {
-        i.src = pattern;
+    let newArray = [];
+    let length = cards.length;
+    for(let i = 0; i < length; i++) {
+        let randomIndex = Math.random() * cards.length;
+        newArray = newArray.concat(cards.splice(randomIndex, 1));
     }
+    cardContainer.innerHTML = "";
+    cards = newArray;
+    cards.forEach(card => {
+        card.src = pattern;
+        cardContainer.appendChild(card);
+    });
     score = 0;
     matchedCardCounter = 0;
+    displayScore();
 }
 // Maybe combine the two functions?
 function toggleGuide() {
@@ -53,11 +63,12 @@ function toggleScore() {
         scoreOn = true;
     }
 }
-
+// Reveals the associated image the card has
 function revealCard(object) {
     object.src = getCardShape(object);
     return object;
 }
+// Gets the image associated with the card class
 function getCardShape(object) {
     let cardClass = object.className;
     for(let i in images) {
@@ -66,6 +77,9 @@ function getCardShape(object) {
         }
     }
 }
+/* Checks if the two cards are matching, 
+then reveals them and increases the matched card counter by 1 if they are 
+*/
 function processGuess(object) {
     cardsSelected.push(object);
     if(cardsSelected.length >= 2) {
@@ -79,13 +93,15 @@ function processGuess(object) {
         cardsSelected = [];
     }
 }
+// Updates the score text
 function displayScore() {
     if(score == 1) {
         scorePara.textContent = `You have made ${score} guess.`; 
     } else {
         scorePara.textContent = `You have made ${score} guesses.`;
     }
-} 
+}
+
 resetButton.addEventListener("click", reset);
 guideButton.addEventListener("click", toggleGuide);
 for(let i of cards) {
